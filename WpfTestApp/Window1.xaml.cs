@@ -10,24 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfTestApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Window1 : Window
     {
-        public MainWindow()
+        public Window1()
         {
             InitializeComponent();
         }
 
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        private void Up_Click(object sender, RoutedEventArgs e)
         {
-            popup1.IsOpen = true;
+            scroll.LineUp();
+        }
+
+        private void Down_Click(object sender, RoutedEventArgs e)
+        {
+            scroll.LineDown();
         }
     }
 }

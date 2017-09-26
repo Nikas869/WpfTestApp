@@ -7,10 +7,45 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
   <DockPanel LastChildFill="True">
-    <Button DockPanel.Dock="Top" Background="AliceBlue" Content="Верхняя кнопка" />
-    <Button DockPanel.Dock="Left" Background="Aquamarine" Content="Левая кнопка" />
-    <Button DockPanel.Dock="Right" Background="DarkGreen" Content="Правая кнопка" />
-    <Button DockPanel.Dock="Bottom" Background="BlanchedAlmond" Content="Нижняя кнопка" />
-    <Button Background="LightGreen" Content="Центр" />
+    <StackPanel x:Name="stackPanel">
+      <CheckBox x:Name="checkBox1" IsThreeState="True" IsChecked="False" Height="20" Content="Неотмечено" />
+      <CheckBox x:Name="checkBox2" IsThreeState="True" IsChecked="True" Height="20" Content="Отмечено" />
+      <CheckBox x:Name="checkBox3" IsThreeState="True" IsChecked="{x:Null}" Height="20" Content="Неопределено"/>
+    </StackPanel>
+    <GroupBox DockPanel.Dock="Right" Header="Выбрать блюдо" Padding="5">
+      <StackPanel>
+        <RadioButton IsChecked="True" Margin="3">Салат Оливье</RadioButton>
+        <RadioButton Margin="3">Котлеты по-киевски</RadioButton>
+        <RadioButton Margin="3">Селедка под шубой</RadioButton>
+        <Button Width="80" Margin="3">Заказать</Button>
+        <Expander Header="Некрасов">
+          <TextBlock>Однажды в студеную зимнюю пору...</TextBlock>
+        </Expander>
+        <Expander Header="Пушкин">
+          <TextBlock>Онегин был, по мнению многих, ученый малый, но ...</TextBlock>
+        </Expander>
+        <Expander Header="Опрос">
+          <StackPanel>
+            <TextBlock>Отметьте, что вам больше нравится</TextBlock>
+            <CheckBox>WinForms</CheckBox>
+            <CheckBox>WPF</CheckBox>
+            <CheckBox>ASP.NET</CheckBox>
+          </StackPanel>
+        </Expander>
+      </StackPanel>
+    </GroupBox>
+    <Button DockPanel.Dock="Bottom" Background="BlanchedAlmond" Content="Нижняя кнопка" 
+            MouseEnter="Button_MouseEnter"/>
+    <Popup x:Name="popup1" StaysOpen="False" Placement="Mouse" MaxWidth="180"
+         AllowsTransparency="True"  >
+      <TextBlock TextWrapping="Wrap" Width="180" Background="LightPink" Opacity="0.8" >
+            Чтобы узнать больше, посетите сайт metanit.com
+      </TextBlock>
+    </Popup>
+    <Button Background="LightGreen" Content="Tooltip example">
+      <Button.ToolTip>
+        <ToolTip HasDropShadow="True" Content="Всплывающая подсказка для кнопки" />
+      </Button.ToolTip>
+    </Button>
   </DockPanel>
 </Window>

@@ -6,20 +6,11 @@
         xmlns:local="clr-namespace:WpfTestApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid x:Name="grid1">
-        <TextBox x:Name="textbox1"
-                 Width="130"
-                 Height="30"
-                 VerticalAlignment="Top"
-                 Margin="20"/>
-        <Button x:Name="button1"
-                Width="150"
-                Height="30"
-                Click="Button1_OnClick">
-          <Button.Content>
-            <local:Phone Name="Nokia" 
-                         Price="100" />
-          </Button.Content>
-        </Button>
-    </Grid>
+  <DockPanel LastChildFill="True">
+    <Button DockPanel.Dock="Top" Background="AliceBlue" Content="Верхняя кнопка" />
+    <Button DockPanel.Dock="Left" Background="Aquamarine" Content="Левая кнопка" />
+    <Button DockPanel.Dock="Right" Background="DarkGreen" Content="Правая кнопка" />
+    <Button DockPanel.Dock="Bottom" Background="BlanchedAlmond" Content="Нижняя кнопка" />
+    <Button Background="LightGreen" Content="Центр" />
+  </DockPanel>
 </Window>

@@ -24,21 +24,5 @@ namespace WpfTestApp
         {
             InitializeComponent();
         }
-
-        private void Button1_OnClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show((button1.Content as Phone)?.ToString());
-        }
-    }
-
-    public class Phone
-    {
-        public string Name { get; set; }
-        public int Price { get; set; }
-
-        public override string ToString()
-        {
-            return $"Смартфон {Name}; цена: {Price}";
-        }
     }
 }

@@ -25,10 +25,25 @@ namespace WpfTestApp
             InitializeComponent();
         }
 
-        private void Control_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Exit_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            textBlock1.Text = textBlock1.Text + "sender: " + sender.ToString() + "\n";
-            textBlock1.Text = textBlock1.Text + "source: " + e.Source.ToString() + "\n\n";
+            using (System.IO.StreamWriter writer = new System.IO.StreamWriter("log.txt", true))
+            {
+                writer.WriteLine("Выход из приложения: " + DateTime.Now.ToShortDateString() + " " +
+                                 DateTime.Now.ToLongTimeString());
+                writer.Flush();
+            }
+
+            this.Close();
         }
+    }
+
+    public class WindowCommands
+    {
+        static WindowCommands()
+        {
+            Exit = new RoutedCommand("Exit", typeof(MainWindow));
+        }
+        public static RoutedCommand Exit { get; set; }
     }
 }

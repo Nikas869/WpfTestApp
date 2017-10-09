@@ -6,22 +6,18 @@
         xmlns:local="clr-namespace:WpfTestApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="250" Width="300" FontSize="20">
-  <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="Auto" />
-      <ColumnDefinition Width="Auto" />
-      <ColumnDefinition Width="Auto" />
-    </Grid.ColumnDefinitions>
-    <StackPanel Grid.Column="0" VerticalAlignment="Center" MouseDown="Control_MouseDown">
-      <Button x:Name="button1" Width="80" Height="50" MouseDown="Control_MouseDown" Margin="10" >
-        <Ellipse Width="30" Height="30" Fill="Red" MouseDown="Control_MouseDown" />
-      </Button>
-    </StackPanel>
-    <StackPanel Grid.Column="1" VerticalAlignment="Center" PreviewMouseDown="Control_MouseDown">
-      <Button x:Name="button2" Width="80" Height="50" PreviewMouseDown="Control_MouseDown" Margin="10" >
-        <Ellipse Width="30" Height="30" Fill="Red" PreviewMouseDown="Control_MouseDown" />
-      </Button>
-    </StackPanel>
-    <TextBlock x:Name="textBlock1" Grid.Column="2" Padding="10" />
-  </Grid>
+  <Window.CommandBindings>
+    <CommandBinding Command="local:WindowCommands.Exit" Executed="Exit_Executed"/>
+  </Window.CommandBindings>
+  <DockPanel>
+    <Menu DockPanel.Dock="Top" MinHeight="25">
+      <MenuItem Header="File" />
+      <MenuItem Header="Edit">
+        <MenuItem Header="Copy" CommandTarget="{Binding ElementName=txtBox}" Command="Copy"/>
+        <MenuItem Header="Paste" CommandTarget="{Binding ElementName=txtBox}" Command="Paste"/>
+      </MenuItem>
+      <MenuItem Header="Выход" Command="local:WindowCommands.Exit"  />
+    </Menu>
+    <TextBox x:Name="txtBox" />
+  </DockPanel>
 </Window>

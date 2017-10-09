@@ -25,9 +25,10 @@ namespace WpfTestApp
             InitializeComponent();
         }
 
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        private void Control_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            popup1.IsOpen = true;
+            textBlock1.Text = textBlock1.Text + "sender: " + sender.ToString() + "\n";
+            textBlock1.Text = textBlock1.Text + "source: " + e.Source.ToString() + "\n\n";
         }
     }
 }
